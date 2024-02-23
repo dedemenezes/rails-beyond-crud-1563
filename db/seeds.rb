@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts 'Cleaning DB...'
+Restaurant.destroy_all
+
+puts 'Populating DB...'
+
+dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", rating: 5, chef_name: 'Jamie Oliver'}
+pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", rating: 4, chef_name: 'Pizza Master Chef'}
+
+[dishoom, pizza_east].each do |attributes|
+  restaurant = Restaurant.create!(attributes)
+  puts "Created #{restaurant.name}"
+end
+
+puts 'Finished zo/'
